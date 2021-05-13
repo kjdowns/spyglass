@@ -1,1 +1,29 @@
-<p>goals-list works!</p>
+<div class="goals-list-container">
+    <h1>All Goals</h1>
+    <div>
+        <button mat-raised-button color="primary">New Goal</button>
+    </div>
+
+    <div class="card-container">
+        <mat-card *ngFor="let goal of GOALS">
+            <mat-card-header>
+                <mat-card-title>{{goal.name}}</mat-card-title>
+            </mat-card-header>
+            <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" height="200px">
+            <mat-card-content>
+                <p>{{goal.description}}</p>
+                <ul>
+                    <li>Target Date: {{goal.targetDate | date}}</li>
+                    <li>Currently Saved: {{goal.currentAmount | currency:'USD'}}</li>
+                    <li>Goal: {{goal.targetAmount | currency:'USD'}}</li>
+                </ul>
+                
+                <mat-progress-bar mode="determinate" value="{{displayProgress(goal.currentAmount, goal.targetAmount)}}"></mat-progress-bar>
+            </mat-card-content>
+            <mat-card-actions>
+                <button mat-raised-button color="primary">UPDATE</button>
+                <button mat-raised-button color="warn">DELETE</button>
+            </mat-card-actions>
+        </mat-card>
+    </div>
+</div>
