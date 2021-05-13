@@ -7,6 +7,8 @@ import { GoalsListComponent } from './components/goals/goals-list/goals-list.com
 import { GoalsDetailsComponent } from './components/goals/goals-details/goals-details.component';
 import { GoalsAddComponent } from './components/goals/goals-add/goals-add.component';
 import { GoalsUpdateComponent } from './components/goals/goals-update/goals-update.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MaterialModule } from './shared/material.module';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,9 @@ import { GoalsUpdateComponent } from './components/goals/goals-update/goals-upda
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    MaterialModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
