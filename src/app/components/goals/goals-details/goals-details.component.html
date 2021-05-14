@@ -1,8 +1,17 @@
-<p>goals-details works!</p>
-<div>
+
+<div class="goals-details-container">
+    <h1>Deatils for {{goal.name}}</h1>
     <ul>
         <li>ID: {{goal.id}}</li>
         <li>Name: {{goal.name}}</li>
         <li>Description: {{goal.description}}</li>
+        <li>Target Date: {{goal.targetDate | date}}</li>
+        <li>Currently Saved: {{goal.currentAmount | currency:'USD'}}</li>
+        <li>Goal: {{goal.targetAmount | currency:'USD'}}</li>
     </ul>
+    <div>
+        <button mat-raised-button color="primary" routerLink="">Back</button>
+        <button mat-raised-button color="primary">Update</button>
+        <button mat-raised-button color="warn">Delete</button>
+    </div>
 </div>
