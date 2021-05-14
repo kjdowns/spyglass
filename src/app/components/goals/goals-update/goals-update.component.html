@@ -26,13 +26,23 @@
     <br>
     <mat-form-field appearance="fill">
         <mat-label>Current Amount</mat-label>
-        <input matInput [formControl]="currentAmount" [(ngModel)]="currentGoal.currentAmount" required>
+        <input matInput [formControl]="currentAmount" [(ngModel)]="currentGoal.name" required>
     </mat-form-field>
     <br>
     <mat-form-field appearance="fill">
         <mat-label>Target Amount</mat-label>
         <input matInput [formControl]="targetAmount" [(ngModel)]="currentGoal.targetAmount" required>
     </mat-form-field>
+    <br>
+    <div>
+      <!-- <button mat-button style="color:rgb(206,0,00);" (click)="updateGoal()">
+        <mat-icon>assignment_turned_in</mat-icon>Update
+      </button> -->
+      <div *ngIf=message>{{message}}  </div>
+      <button mat-button style="color:rgb(206,0,00);" rouerLink=''>
+        <mat-icon>home</mat-icon>Back
+      </button>
+    </div>
     <br>
     <div class="errors">
       <mat-error *ngIf="name.invalid">{{getErrorName()}}</mat-error>
@@ -43,12 +53,4 @@
     </div>  
   </div>
   
-  <div>
-  <button mat-button style="color:rgb(206,0,00);" (click)="updateGoal()">
-    <mat-icon>assignment_turned_in</mat-icon>Update
-  </button>
-  <div *ngIf=message>{{message}}  </div>
-  <button mat-button style="color:rgb(206,0,00);" rouerLink=''>
-    <mat-icon>home</mat-icon>Back
-  </button>
-  </div>
+  

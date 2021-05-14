@@ -14,13 +14,21 @@ interface Picture {
   styleUrls: ['./goals-update.component.css']
 })
 export class GoalsUpdateComponent implements OnInit {
+  
   pictures: Picture[]= [
     {value:"House", image: "../assets/images/house.png"},
     {value:"Car", image: "../assets/images/car.png"},
     {value:"Wedding", image: "../assets/images/wedding.png"}
   ];
 
-  currentGoal= null;
+  currentGoal= {
+      name: "New Car",
+      description: "Saving for a brand new car",
+      picture: null,
+      targetDate: new Date('2022-01-01'),
+      currentAmount: 1000.00,
+      targetAmount: 23000.00
+  };
   message = "";
 
   name = new FormControl('', [Validators.required]);
@@ -39,28 +47,29 @@ export class GoalsUpdateComponent implements OnInit {
   }
 
   getGoal(id): void {
-    this.goalService.get2(id)
-      .subscribe(
-        data => {
-          this.currentGoal = data;
-          console.log(data);
-        },
-        error => {
-          console.log(error);
-        });
+    this.currentGoal = this.goalService.get(1);
+    // this.goalService.get2(1)
+    //   .subscribe(
+    //     data => {
+    //       this.currentGoal = data;
+    //       console.log(data);
+    //     },
+    //     error => {
+    //       console.log(error);
+    //     });
   }
 
-  updateGoal(): void {
-    this.goalService.update(this.currentGoal.id, this.currentGoal)
-      .subscribe(
-        response => {
-          console.log(response);
-          this.message = 'The GOAL was updated successfully!';
-        },
-        error => {
-          console.log(error);
-        });
-  }
+  // updateGoal(): void {
+  //   this.goalService.update(this.currentGoal.id, this.currentGoal)
+  //     .subscribe(
+  //       response => {
+  //         console.log(response);
+  //         this.message = 'The GOAL was updated successfully!';
+  //       },
+  //       error => {
+  //         console.log(error);
+  //       });
+  // }
 
   getErrorName() {
     if (this.name.hasError('required')) {
