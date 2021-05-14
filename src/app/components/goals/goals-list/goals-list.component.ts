@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Goal } from 'src/app/models/goal';
+import { GoalService } from 'src/app/service/goal.service';
 
 @Component({
   selector: 'app-goals-list',
@@ -8,30 +9,12 @@ import { Goal } from 'src/app/models/goal';
 })
 export class GoalsListComponent implements OnInit {
 
-  GOALS: Goal[] = [
-    {
-      id: 1,
-      name: "New Car",
-      description: "Saving for a brand new car",
-      picture: null,
-      targetDate: new Date('2022-01-01'),
-      currentAmount: 1000.00,
-      targetAmount: 23000.00
-    },
-    {
-      id: 2,
-      name: "PlayStation 5",
-      description: "Saving for a PlayStation 5",
-      picture: null,
-      targetDate: new Date('2021-10-01'),
-      currentAmount: 500.00,
-      targetAmount: 600.00
-    }
-  ];
+  GOALS: Goal[] = [];
 
-  constructor() { }
+  constructor(private goalService: GoalService) { }
 
   ngOnInit(): void {
+    this.GOALS = this.goalService.getAll();
   }
 
   private displayProgress(current, total){
