@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
+import { GoalService } from 'src/app/service/goal.service';
 
 interface Picture {
   value: string;
@@ -37,7 +38,8 @@ export class GoalsAddComponent implements OnInit {
   currentAmount = new FormControl('', [Validators.required]);
   targetAmount = new FormControl('', [Validators.required]);
 
-  constructor() { }
+  constructor(
+    private goalService: GoalService) { }
 
   ngOnInit(): void {
   }
@@ -52,15 +54,15 @@ export class GoalsAddComponent implements OnInit {
       targetAmount: this.goals.currentAmount
     };
 
-    // this.goalService.create(data)
-    //   .subscribe(
-    //     response => {
-    //       console.log(response);
-    //       this.submitted = true;
-    //     },
-    //     error => {
-    //       console.log(error);
-    //     });
+    this.goalService.create(data)
+      .subscribe(
+        response => {
+          console.log(response);
+          this.submitted = true;
+        },
+        error => {
+          console.log(error);
+        });
   }
 
   newGoal(): void {

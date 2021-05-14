@@ -12,9 +12,9 @@
     <br>
     <mat-form-field appearance="fill">
         <mat-label>Picture</mat-label>
-        <mat-select>
+        <mat-select [(ngModel)]="goals.picture">
           <mat-option *ngFor="let picture of pictures" [value]="picture.value">
-            <img width="50" height="50" src={{picture.image}}> {{picture.value}}
+            <img width="50" height="50" src={{picture.image}} > {{picture.value}} 
           </mat-option>
         </mat-select>
     </mat-form-field>
@@ -36,6 +36,9 @@
     <br>
     <button mat-button style="color:rgb(206,0,00);" (click)="saveGoal()">
       <mat-icon>save</mat-icon> Save
+    </button>
+    <button mat-button style="color:rgb(206,0,00);" rouerLink=''>
+      <mat-icon>home</mat-icon>Back
     </button>
     <div class="errors">
       <mat-error *ngIf="name.invalid">{{getErrorName()}}</mat-error>
