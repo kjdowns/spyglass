@@ -1,8 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 import { Goal } from '../models/goal';
 
-const baseUrl = '';
+let baseUrl = '';
 
 @Injectable({
   providedIn: 'root'
@@ -41,10 +42,29 @@ export class GoalService {
     return selectGoal;
   }
 
-  create(data): Goal {
-    data.id = this.GOALS.length + 1;
-    this.GOALS.push(data);
-    return this.GOALS[this.GOALS.length - 1];
+  getAll2(): Observable<any> {
+    return this.http.get(baseUrl);
+  }
+  
+  get2(orderId): Observable<any> {
+    return this.http.get(`${baseUrl}/${orderId}`);
+  }
+  
+  create(data): Observable<any> {
+    let baseUrl = 'http://localhost:8081/goals/add';
+    return this.http.post(baseUrl, data);
+  }
+  
+  update(id, data): Observable<any> {
+    let baseUrl = 'http://localhost:8081/goals/update';
+    return this.http.put(`${baseUrl}/${id}`, data);
+  }
+  
+  delete(id): Observable<any> {
+    return this.http.delete(`${baseUrl}/${id}`);
   }
 
 }
+
+
+
