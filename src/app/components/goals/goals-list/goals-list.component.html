@@ -20,7 +20,7 @@
                 <mat-progress-bar mode="determinate" value="{{displayProgress(goal.currentAmount, goal.targetAmount)}}"></mat-progress-bar>
             </mat-card-content>
             <mat-card-actions>
-                <button mat-raised-button color="primary">Details</button>
+                <button mat-raised-button color="primary" routerLink="goals/{{goal.id}}">Details</button>
                 <button mat-raised-button color="primary">Update</button>
                 <button mat-raised-button color="warn">Delete</button>
             </mat-card-actions>
