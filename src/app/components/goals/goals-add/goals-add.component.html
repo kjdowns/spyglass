@@ -1,1 +1,54 @@
-<p>goals-add works!</p>
+<h1 style="text-align:center">Start Adding Your New Goal</h1>
+<div class = "centerAlign" *ngIf=!submitted>
+    <mat-form-field appearance="fill">
+      <mat-label>Name</mat-label>
+      <input matInput [formControl]="name" [(ngModel)]="goals.name" required>
+    </mat-form-field>
+    <br>
+    <mat-form-field appearance="fill">
+      <mat-label>Description</mat-label>
+      <input matInput [formControl]="description" [(ngModel)]="goals.description" required>
+    </mat-form-field>
+    <br>
+    <mat-form-field appearance="fill">
+        <mat-label>Picture</mat-label>
+        <mat-select>
+          <mat-option *ngFor="let picture of pictures" [value]="picture.value">
+            <img width="50" height="50" src={{picture.image}}> {{picture.value}}
+          </mat-option>
+        </mat-select>
+    </mat-form-field>
+    <br>
+    <mat-form-field appearance="fill">
+      <mat-label>Target Date</mat-label>
+      <input matInput type="date" [formControl]="targetDate" [(ngModel)]="goals.targetDate" required>
+    </mat-form-field>
+    <br>
+    <mat-form-field appearance="fill">
+        <mat-label>Current Amount</mat-label>
+        <input matInput [formControl]="currentAmount" [(ngModel)]="goals.currentAmount" required>
+    </mat-form-field>
+    <br>
+    <mat-form-field appearance="fill">
+        <mat-label>Target Amount</mat-label>
+        <input matInput [formControl]="targetAmount" [(ngModel)]="goals.targetAmount" required>
+    </mat-form-field>
+    <br>
+    <button mat-button style="color:rgb(206,0,00);" (click)="saveGoal()">
+      <mat-icon>save</mat-icon> Save
+    </button>
+    <div class="errors">
+      <mat-error *ngIf="name.invalid">{{getErrorName()}}</mat-error>
+      <mat-error *ngIf="description.invalid">{{getErrorDescription()}}</mat-error>
+      <mat-error *ngIf="targetDate.invalid">{{getErrorTargetDate()}}</mat-error>
+      <mat-error *ngIf="currentAmount.invalid">{{getErrorCurrentAmount()}}</mat-error>
+      <mat-error *ngIf="targetAmount.invalid">{{getErrorTargetAmount()}}</mat-error>
+    </div>  
+  </div>
+  
+  <div *ngIf=submitted>
+    <h4 style="color:rgb(206,0,00);width: 400px; margin:auto">Goal was added successfully</h4>
+  <button mat-button style="color:rgb(206,0,00);" (click)="newGoal()">
+    <mat-icon>portrait</mat-icon> Add Another Goal
+  </button>
+  </div>
