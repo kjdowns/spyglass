@@ -1,7 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Goal } from '../models/goal';
 
 let baseUrl = 'http://localhost:8080/goals';
 
