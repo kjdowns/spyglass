@@ -20,7 +20,14 @@ export class GoalsDetailsComponent implements OnInit {
   }
 
   getGoal(id){
-    this.goal = this.goalService.get(id);
+    this.goalService.get(id)
+      .subscribe(data => {
+        this.goal = data;
+        console.log(data);
+      },
+      error => {
+        console.log(error);
+      });
   }
 
 }

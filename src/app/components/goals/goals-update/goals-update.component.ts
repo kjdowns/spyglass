@@ -47,7 +47,7 @@ export class GoalsUpdateComponent implements OnInit {
   }
 
   getGoal(id): void {
-    this.currentGoal = this.goalService.get(1);
+    // this.currentGoal = this.goalService.get(1);
     // this.goalService.get2(1)
     //   .subscribe(
     //     data => {

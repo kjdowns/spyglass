@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
 import { Goal } from 'src/app/models/goal';
 import { GoalService } from 'src/app/service/goal.service';
 
@@ -14,7 +15,18 @@ export class GoalsListComponent implements OnInit {
   constructor(private goalService: GoalService) { }
 
   ngOnInit(): void {
-    this.GOALS = this.goalService.getAll();
+    this.retrieveGoals();
+  }
+
+  retrieveGoals(): void {
+    this.goalService.getAll()
+      .subscribe(data => {
+        this.GOALS = data;
+        console.log(this.GOALS);
+      },
+        error => {
+          console.log(error);
+    });
   }
 
   private displayProgress(current, total){
