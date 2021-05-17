@@ -2,17 +2,17 @@
 <div class = "centerAlign">
     <mat-form-field appearance="fill">
       <mat-label>Name</mat-label>
-      <input matInput [formControl]="name" [(ngModel)]="currentGoal.name" required>
+      <input matInput name="name" [(ngModel)]="currentGoal.name" required>
     </mat-form-field>
     <br>
     <mat-form-field appearance="fill">
       <mat-label>Description</mat-label>
-      <input matInput [formControl]="description" [(ngModel)]="currentGoal.description" required>
+      <input matInput name="description" [(ngModel)]="currentGoal.description" required>
     </mat-form-field>
     <br>
     <mat-form-field appearance="fill">
         <mat-label>Picture</mat-label>
-        <mat-select [(ngModel)]="currentGoal.picture">
+        <mat-select [(ngModel)]="currentGoal.picture" name="picture">
           <mat-option *ngFor="let picture of pictures" [value]="picture.value">
             <img width="50" height="50" src={{picture.image}}> {{picture.value}}
           </mat-option>
@@ -21,36 +21,34 @@
     <br>
     <mat-form-field appearance="fill">
       <mat-label>Target Date</mat-label>
-      <input matInput type="date" [formControl]="targetDate" [(ngModel)]="currentGoal.targetDate" required>
+      <input matInput type="date" name="targetDate" [(ngModel)]="currentGoal.targetDate" required>
     </mat-form-field>
     <br>
     <mat-form-field appearance="fill">
         <mat-label>Current Amount</mat-label>
-        <input matInput [formControl]="currentAmount" [(ngModel)]="currentGoal.name" required>
+        <input matInput name="currentAmount"  
+          [ngModel]="currentGoal.currentAmount | currency" 
+          [ngModelOptions]="{updateOn:'blur'}"
+          (ngModelChange)="currentGoal.currentAmount=$event" required>
     </mat-form-field>
     <br>
     <mat-form-field appearance="fill">
         <mat-label>Target Amount</mat-label>
-        <input matInput [formControl]="targetAmount" [(ngModel)]="currentGoal.targetAmount" required>
+        <input matInput name="targetAmount" 
+          [ngModel]="currentGoal.targetAmount | currency" 
+          [ngModelOptions]="{updateOn:'blur'}"
+          (ngModelChange)="currentGoal.targetAmount=$event" required>
     </mat-form-field>
     <br>
-    <div>
-      <!-- <button mat-button style="color:rgb(206,0,00);" (click)="updateGoal()">
+    <button mat-raised-button color="primary" (click)="updateGoal()">
         <mat-icon>assignment_turned_in</mat-icon>Update
-      </button> -->
+      </button>
+      <br>
       <div *ngIf=message>{{message}}  </div>
-      <button mat-button style="color:rgb(206,0,00);" rouerLink=''>
+      <button mat-raised-button color="primary" routerLink='/goals'>
         <mat-icon>home</mat-icon>Back
       </button>
-    </div>
-    <br>
-    <div class="errors">
-      <mat-error *ngIf="name.invalid">{{getErrorName()}}</mat-error>
-      <mat-error *ngIf="description.invalid">{{getErrorDescription()}}</mat-error>
-      <mat-error *ngIf="targetDate.invalid">{{getErrorTargetDate()}}</mat-error>
-      <mat-error *ngIf="currentAmount.invalid">{{getErrorCurrentAmount()}}</mat-error>
-      <mat-error *ngIf="targetAmount.invalid">{{getErrorTargetAmount()}}</mat-error>
-    </div>  
+     
   </div>
   
   
