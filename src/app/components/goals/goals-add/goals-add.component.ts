@@ -32,31 +32,6 @@ export class GoalsAddComponent implements OnInit {
 
   submitted = false;
 
-  name = new FormControl('', [Validators.required]);
-  description = new FormControl('', [Validators.required]);
-  targetDate = new FormControl('', [Validators.required]);
-  currentAmount = new FormControl('', [Validators.required]);
-  targetAmount = new FormControl('', [Validators.required]);
-
-  // //getters and setters for service properties 
-  // get targetDate(): Date{
-  //   return this.goalService.targetDate;
-  // }
-  // set targetDate(value: Date){
-  //   this.goalService.targetDate = value;
-  // }
-  get monthlyPayment(): number{
-    return this.goalService.monthlyPayment;
-  }
-  set monthlyPayment(value: number){
-    this.goalService.monthlyPayment = value;
-  }
-  get amount(): number{
-    return this.goalService.amount;
-  }
-  set amount(value: number){
-    this.goalService.amount = value;
-  }
   constructor(
     private goalService: GoalService) { }
 
@@ -97,43 +72,10 @@ export class GoalsAddComponent implements OnInit {
       description: '',
       picture: null,
       targetDate: '',
-      currentAmount: this.monthlyPayment,
-      targetAmount : this.amount
+      currentAmount: null,
+      targetAmount : null
     }
   }
 
-  getErrorName() {
-    if (this.name.hasError('required')) {
-      return 'Name missing';
-    }
-    return this.name.hasError('name') ? 'Not a valid name' : '';
-  }
-
-  getErrorDescription() {
-    if (this.description.hasError('required')) {
-      return 'Description missing';
-    }
-    return this.description.hasError('description') ? 'Not a valid description' : '';
-  }
-
-  getErrorTargetDate() {
-    if (this.targetDate.hasError('required')) {
-      return 'Target Date missing';
-    }
-    return this.targetDate.hasError('targetDate') ? 'Not a valid targetDate' : '';
-  }
-
-  getErrorCurrentAmount() {
-    if (this.currentAmount.hasError('required')) {
-      return 'Current Amount missing';
-    }
-    return this.currentAmount.hasError('currentAmount') ? 'Not a valid currentAmount' : '';
-  }
-
-  getErrorTargetAmount() {
-    if (this.targetAmount.hasError('required')) {
-      return 'Target Amount missing';
-    }
-    return this.targetAmount.hasError('targetAmount') ? 'Not a valid targetAmount' : '';
-  }
+  
 }

@@ -2,12 +2,12 @@
 <div class = "centerAlign" *ngIf=!submitted>
     <mat-form-field appearance="fill">
       <mat-label>Name</mat-label>
-      <input matInput [formControl]="name" [(ngModel)]="goals.name" required>
+      <input matInput [(ngModel)]="goals.name" required>
     </mat-form-field>
     <br>
     <mat-form-field appearance="fill">
       <mat-label>Description</mat-label>
-      <input matInput [formControl]="description" [(ngModel)]="goals.description" required>
+      <input matInput [(ngModel)]="goals.description" required>
     </mat-form-field>
     <br>
     <mat-form-field appearance="fill">
@@ -21,38 +21,34 @@
     <br>
     <mat-form-field appearance="fill">
       <mat-label>Target Date</mat-label>
-      <input matInput type="date" [formControl]="targetDate" [(ngModel)]="goals.targetDate" required>
+      <input matInput type="date" [(ngModel)]="goals.targetDate" required>
     </mat-form-field>
     <br>
     <mat-form-field appearance="fill">
         <mat-label>Current Amount</mat-label>
-        <input matInput name = "currentAmount" [ngModel]="goals.currentAmount | currency"
-        [ngModelOptions]= required>
+        <input matInput [(ngModel)]="goals.currentAmount" required>
     </mat-form-field>
     <br>
     <mat-form-field appearance="fill">
         <mat-label>Target Amount</mat-label>
-        <input matInput [formControl]="targetAmount" [(ngModel)]="goals.targetAmount" required>
+        <input matInput [(ngModel)]="goals.targetAmount" required>
     </mat-form-field>
     <br>
-    <button mat-button style="color:rgb(206,0,00);" (click)="saveGoal()">
+    <button mat-raised-button color="primary" (click)="saveGoal()">
       <mat-icon>save</mat-icon> Save
     </button>
-    <button mat-button style="color:rgb(206,0,00);" routerLink=''>
+    <br>
+    <button mat-raised-button color="primary" routerLink='/goals'>
       <mat-icon>home</mat-icon>Back
     </button>
-    <div class="errors">
-      <mat-error *ngIf="name.invalid">{{getErrorName()}}</mat-error>
-      <mat-error *ngIf="description.invalid">{{getErrorDescription()}}</mat-error>
-      <mat-error *ngIf="targetDate.invalid">{{getErrorTargetDate()}}</mat-error>
-      <mat-error *ngIf="currentAmount.invalid">{{getErrorCurrentAmount()}}</mat-error>
-      <mat-error *ngIf="targetAmount.invalid">{{getErrorTargetAmount()}}</mat-error>
-    </div>  
   </div>
   
   <div *ngIf=submitted>
     <h4 style="color:rgb(206,0,00);width: 400px; margin:auto">Goal was added successfully</h4>
-  <button mat-button style="color:rgb(206,0,00);" (click)="newGoal()">
+  <button mat-raised-button color="primary" (click)="newGoal()">
     <mat-icon>portrait</mat-icon> Add Another Goal
+  </button>
+  <button mat-raised-button color="primary" routerLink='/goals'>
+    <mat-icon>home</mat-icon>Back
   </button>
   </div>

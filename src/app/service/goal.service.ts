@@ -41,7 +41,7 @@ export class GoalService {
   }
   
   delete(id): Observable<any> {
-    return this.http.delete(`${baseUrl}/${id}`);
+    return this.http.delete(`${baseUrl}/delete/${id}`);
   }
 
 }
