@@ -4,13 +4,15 @@ import { GoalsAddComponent } from './components/goals/goals-add/goals-add.compon
 import { GoalsDetailsComponent } from './components/goals/goals-details/goals-details.component';
 import { GoalsListComponent } from './components/goals/goals-list/goals-list.component';
 import { GoalsUpdateComponent } from './components/goals/goals-update/goals-update.component';
+import { ChartsProgressComponent } from './components/charts/charts-progress.component';
 
 const routes: Routes = [
   // Goals routes
   {path: '', component: GoalsListComponent},
   {path: 'goals/add', component: GoalsAddComponent},
   {path: 'goals/update', component: GoalsUpdateComponent},
-  {path: 'goals/:id', component: GoalsDetailsComponent}
+  {path: 'goals/:id', component: GoalsDetailsComponent},
+  {path: 'charts', component: ChartsProgressComponent}
   
 ];
 

@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule} from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -12,6 +12,9 @@ import { MaterialModule } from './shared/material.module';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ChartsProgressComponent } from './components/charts/charts-progress.component';
+import { NgxChartsModule } from '@swimlane/ngx-charts';
+
 
 @NgModule({
   declarations: [
@@ -19,7 +22,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     GoalsListComponent,
     GoalsDetailsComponent,
     GoalsAddComponent,
-    GoalsUpdateComponent
+    GoalsUpdateComponent,
+    ChartsProgressComponent
   ],
   imports: [
     BrowserModule,
@@ -30,8 +34,11 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     ReactiveFormsModule,
     MaterialModule,
     BrowserAnimationsModule,
-    FormsModule
+    FormsModule,
+    NgxChartsModule
+        
   ],
+  
   providers: [],
   bootstrap: [AppComponent]
 })
