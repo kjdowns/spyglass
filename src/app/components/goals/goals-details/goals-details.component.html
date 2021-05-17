@@ -1,6 +1,6 @@
 
 <div class="goals-details-container">
-    <h1>Deatils for {{goal.name}}</h1>
+    <h1>Details for {{goal.name}}</h1>
     <ul>
         <li>ID: {{goal.id}}</li>
         <li>Name: {{goal.name}}</li>
@@ -10,8 +10,8 @@
         <li>Goal: {{goal.targetAmount | currency:'USD'}}</li>
     </ul>
     <div>
-        <button mat-raised-button color="primary" routerLink="">Back</button>
-        <button mat-raised-button color="primary">Update</button>
+        <button mat-raised-button color="primary" routerLink="/goals">Back</button>
+        <button mat-raised-button color="primary" routerLink="/goals/update">Update</button>
         <button mat-raised-button color="warn">Delete</button>
     </div>
 </div>

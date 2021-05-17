@@ -1,7 +1,7 @@
 <div class="goals-list-container">
     <h1>All Goals</h1>
     <div>
-        <button mat-raised-button color="primary" routerLink="goals/add">New Goal</button>
+        <button mat-raised-button color="primary" routerLink="/goals/add">New Goal</button>
     </div>
 
     <div class="card-container">
@@ -23,8 +23,8 @@
                 <br>
             </mat-card-content>
             <mat-card-actions>
-                <button mat-raised-button color="primary" routerLink="goals/{{goal.id}}">Details</button>
-                <button mat-raised-button color="primary">Update</button>
+                <button mat-raised-button color="primary" routerLink="/goals/{{goal.id}}">Details</button>
+                <button mat-raised-button color="primary" routerLink="/goals/update">Update</button>
                 <button mat-raised-button color="warn">Delete</button>
             </mat-card-actions>
         </mat-card>
