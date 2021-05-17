@@ -30,4 +30,8 @@ export class GoalsDetailsComponent implements OnInit {
       });
   }
 
+  displayProgress(current, total){
+    return Number(current / total) * 100 ;
+  }
+
 }

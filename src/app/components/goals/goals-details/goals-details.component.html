@@ -1,17 +1,44 @@
 
 <div class="goals-details-container">
     <h1>Details for {{goal.name}}</h1>
-    <ul>
-        <li>ID: {{goal.id}}</li>
-        <li>Name: {{goal.name}}</li>
-        <li>Description: {{goal.description}}</li>
-        <li>Target Date: {{goal.targetDate | date}}</li>
-        <li>Currently Saved: {{goal.currentAmount | currency:'USD'}}</li>
-        <li>Goal: {{goal.targetAmount | currency:'USD'}}</li>
-    </ul>
-    <div>
-        <button mat-raised-button color="primary" routerLink="/goals">Back</button>
-        <button mat-raised-button color="primary" routerLink="/goals/update">Update</button>
-        <button mat-raised-button color="warn">Delete</button>
-    </div>
+    <mat-card>
+        <mat-card-header>
+            <mat-card-title>{{goal.name}}</mat-card-title>
+        </mat-card-header>
+        <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" height="200px">
+        <mat-card-content>
+            <mat-list>
+                <mat-divider></mat-divider>
+                <mat-list-item>
+                    <span class="list-title">Description: </span>
+                    <span class="list-detail">{{goal.description}}</span>
+                </mat-list-item>
+                <mat-divider></mat-divider>
+                <mat-list-item>
+                    <span class="list-title">Target Date: </span>
+                    <span class="list-detail">{{goal.targetDate | date}}</span>
+                </mat-list-item>
+                <mat-divider></mat-divider>
+                <mat-list-item>
+                    <span class="list-title">Amount Saved: </span>
+                    <span class="list-detail">{{goal.currentAmount | currency:'USD'}}</span>
+                </mat-list-item>
+                <mat-divider></mat-divider>
+                <mat-list-item>
+                    <span class="list-title">Target Amount: </span>
+                    <span class="list-detail">{{goal.targetAmount | currency:'USD'}}</span>
+                </mat-list-item>
+                <mat-divider></mat-divider>
+                <mat-list-item style="margin-top: 0px; margin-bottom: 0px;">
+                    <mat-progress-bar mode="determinate" value="{{displayProgress(goal.currentAmount, goal.targetAmount)}}"></mat-progress-bar>
+                </mat-list-item>
+                <mat-divider></mat-divider>
+            </mat-list>
+        </mat-card-content>
+        <mat-card-actions>
+            <button mat-raised-button color="primary" routerLink="/goals">Back</button>
+            <button mat-raised-button color="primary" routerLink="/goals/update">Update</button>
+            <button mat-raised-button color="warn">Delete</button>
+        </mat-card-actions>
+    </mat-card>
 </div>
