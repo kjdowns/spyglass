@@ -8,6 +8,9 @@ let baseUrl = 'http://localhost:8080/goals';
   providedIn: 'root'
 })
 export class GoalService {
+  targetDate: Date;
+  monthlyPayment: number;
+  amount: number;
 
   constructor(private http: HttpClient) { }
 

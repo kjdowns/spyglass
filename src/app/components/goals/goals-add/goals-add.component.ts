@@ -38,10 +38,35 @@ export class GoalsAddComponent implements OnInit {
   currentAmount = new FormControl('', [Validators.required]);
   targetAmount = new FormControl('', [Validators.required]);
 
+  // //getters and setters for service properties 
+  // get targetDate(): Date{
+  //   return this.goalService.targetDate;
+  // }
+  // set targetDate(value: Date){
+  //   this.goalService.targetDate = value;
+  // }
+  get monthlyPayment(): number{
+    return this.goalService.monthlyPayment;
+  }
+  set monthlyPayment(value: number){
+    this.goalService.monthlyPayment = value;
+  }
+  get amount(): number{
+    return this.goalService.amount;
+  }
+  set amount(value: number){
+    this.goalService.amount = value;
+  }
   constructor(
     private goalService: GoalService) { }
 
   ngOnInit(): void {
+    if (this.goalService.amount){
+      this.newGoal();
+      this.goalService.amount= null;
+    }
+    
+   
   }
 
   saveGoal(): void {
@@ -51,7 +76,7 @@ export class GoalsAddComponent implements OnInit {
       picture: this.goals.picture,
       targetDate: this.goals.targetDate,
       currentAmount: this.goals.currentAmount,
-      targetAmount: this.goals.currentAmount
+      targetAmount: this.goals.targetAmount
     };
 
     this.goalService.create(data)
@@ -72,8 +97,8 @@ export class GoalsAddComponent implements OnInit {
       description: '',
       picture: null,
       targetDate: '',
-      currentAmount: null,
-      targetAmount: null
+      currentAmount: this.monthlyPayment,
+      targetAmount : this.amount
     }
   }
 

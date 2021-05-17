@@ -1,5 +1,6 @@
 
-<h1>Welcome to Spyglass! Let's get started saving!</h1>
+<h1>Welcome to Spyglass!<br> <br>
+  <i>Let's get started saving!</i> </h1>
 <mat-horizontal-stepper #stepper>
     
     <mat-step >
@@ -47,7 +48,13 @@
       </div>
       <div>
         <button mat-button matStepperPrevious>Back</button>
-        <button mat-button (click)="stepper.reset()">Reset</button>
+        <button mat-button (click)="reset()">Reset</button>
       </div>
     </mat-step>
   </mat-horizontal-stepper>
+  <div>
+    <div>
+      <button mat-raised-button color="primary" routerLink="/goals/add">Track your goal</button>
+  </div>
+  
+  </div>
