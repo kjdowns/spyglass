@@ -1,0 +1,53 @@
+
+<h1>Welcome to Spyglass! Let's get started saving!</h1>
+<mat-horizontal-stepper #stepper>
+    
+    <mat-step >
+        <ng-template matStepLabel>How much do you want to save?</ng-template>
+        <mat-form-field>
+          <mat-label>Amount</mat-label>
+          <input matInput placeholder="$0.00" [(ngModel)]="amount" required>
+        </mat-form-field>
+        <div>
+          <button mat-button matStepperNext>Continue</button>
+        </div>
+    </mat-step>
+
+    <mat-step label="Enter a Target Date">
+        <mat-form-field>
+          <mat-label>Target Date</mat-label>
+          <input matInput [(ngModel)]="targetDate" [matDatepicker]="picker"
+                 required>
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+        <div>
+          <button mat-button matStepperPrevious>Back</button>
+          <button mat-button matStepperNext>Next</button>
+        </div>
+    </mat-step>
+
+    <mat-step>
+      <ng-template matStepLabel>Savings Plan</ng-template>
+      <div class="button-container" *ngIf="!showPlan">
+        <button mat-raised-button color="primary" (click)="calculatePlan()">Calculate Savings Plan</button>
+      </div>
+      <div class="savings-plan-container" *ngIf="showPlan">
+        <p>Calculated Plan:</p>
+        <P>
+            Monthly Savings: {{monthlyPayment | currency:'USD'}}
+        </P>
+        <!-- 
+        Monthly Amount to set aside to hit goal
+        OR save with Vanguard
+        Buttons 
+        Start your savings plan today 
+        Button to Vanguard 
+        -->
+      </div>
+      <div>
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button (click)="stepper.reset()">Reset</button>
+      </div>
+    </mat-step>
+  </mat-horizontal-stepper>

@@ -12,6 +12,7 @@ import { MaterialModule } from './shared/material.module';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { GreetingComponent } from './components/greeting/greeting.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     GoalsListComponent,
     GoalsDetailsComponent,
     GoalsAddComponent,
-    GoalsUpdateComponent
+    GoalsUpdateComponent,
+    GreetingComponent
   ],
   imports: [
     BrowserModule,
