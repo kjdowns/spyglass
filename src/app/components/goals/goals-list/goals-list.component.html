@@ -1,7 +1,13 @@
 <div class="goals-list-container">
-    <h1>All Goals</h1>
-    <div>
-        <button mat-raised-button color="primary" routerLink="/goals/add">New Goal</button>
+    <div class="heading-container">
+        <mat-list>
+            <h1>Savings Goals Overview</h1>
+            <mat-divider></mat-divider>
+            <button class="add-button" mat-stroked-button color="primary" routerLink="/goals/add">
+                <mat-icon>note_add</mat-icon>
+                Create New Goal
+            </button>
+        </mat-list>
     </div>
 
     <div class="card-container">
@@ -12,20 +18,24 @@
             </mat-card-header>
             <img mat-card-image src="{{goal.picture}}" height="200px">
             <mat-card-content>
-                <!-- <p>{{goal.description}}</p>
-                <ul> 
-                    <li>Currently Saved: {{goal.currentAmount | currency:'USD'}}</li>
-                    <li>Goal: {{goal.targetAmount | currency:'USD'}}</li>
-                </ul>      -->
                 <mat-progress-bar mode="determinate" value="{{displayProgress(goal.currentAmount, goal.targetAmount)}}"></mat-progress-bar>
                 <br>
                 <span style="float: right;">Saved: {{goal.currentAmount | currency:'USD'}} / {{goal.targetAmount | currency:'USD'}}</span>
                 <br>
             </mat-card-content>
             <mat-card-actions>
-                <button mat-raised-button color="primary" routerLink="/goals/{{goal.id}}">Details</button>
-                <button mat-raised-button color="primary" routerLink="/goals/update/{{goal.id}}">Update</button>
-                <button mat-raised-button color="warn" (click)="deleteGoal(goal.id)">Delete</button>
+                <button mat-raised-button color="primary" routerLink="/goals/{{goal.id}}">
+                    <mat-icon>pageview</mat-icon>
+                    Details
+                </button>
+                <button mat-raised-button color="primary" routerLink="/goals/update/{{goal.id}}">
+                    <mat-icon>edit</mat-icon>
+                    Edit
+                </button>
+                <button mat-raised-button color="warn" (click)="deleteGoal(goal.id)">
+                    <mat-icon>delete_forever</mat-icon>
+                    Delete
+                </button>
             </mat-card-actions>
         </mat-card>
     </div>

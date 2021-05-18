@@ -1,6 +1,9 @@
 
-<div class="goals-details-container">
-    <h1>Details for {{goal.name}}</h1>
+<div class="goals-details-container"> 
+    <mat-list>
+        <h1>Details for {{goal.name}}</h1>
+        <mat-divider></mat-divider>
+    </mat-list>
     <mat-card>
         <mat-card-header>
             <mat-card-title>{{goal.name}}</mat-card-title>
@@ -36,9 +39,14 @@
             </mat-list>
         </mat-card-content>
         <mat-card-actions>
-            <button mat-raised-button color="primary" routerLink="/goals">Back</button>
-            <button mat-raised-button color="primary" routerLink="/goals/update/{{goal.id}}">Update</button>
-            <button mat-raised-button color="warn">Delete</button>
+            <button mat-raised-button color="primary" routerLink="/goals">
+                <mat-icon>home</mat-icon>
+                Back
+            </button>
+            <button mat-raised-button color="primary" routerLink="/goals/update/{{goal.id}}">
+                <mat-icon>edit</mat-icon>
+                Edit Goal
+            </button>
         </mat-card-actions>
     </mat-card>
 </div>
