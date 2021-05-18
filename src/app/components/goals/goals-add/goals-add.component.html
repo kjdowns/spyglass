@@ -21,17 +21,26 @@
     <br>
     <mat-form-field appearance="fill">
       <mat-label>Target Date</mat-label>
-      <input matInput type="date" [(ngModel)]="goals.targetDate" required>
+      <input matInput type="date" name="targetDate" 
+      [ngModel]="goals.targetDate | date:'yyyy-MM-dd'" 
+      [ngModelOptions]= "{updateOn:'blur'}"
+        (ngModelChange)="goals.targetDate=$event"
+      required>
     </mat-form-field>
     <br>
     <mat-form-field appearance="fill">
         <mat-label>Current Amount</mat-label>
-        <input matInput [(ngModel)]="goals.currentAmount" required>
+        <input matInput name = "currentAmount"[ngModel]="goals.currentAmount | currency"
+        [ngModelOptions]="{updateOn:'blur'}"
+        (ngModelChange)="goals.currentAmount=$event" required>
     </mat-form-field>
     <br>
     <mat-form-field appearance="fill">
         <mat-label>Target Amount</mat-label>
-        <input matInput [(ngModel)]="goals.targetAmount" required>
+        <input matInput name = "targetAmount" [ngModel]="goals.targetAmount | currency" 
+        [ngModelOptions]= "{updateOn:'blur'}"
+        (ngModelChange)="goals.targetAmount=$event"
+        required>
     </mat-form-field>
     <br>
     <button mat-raised-button color="primary" (click)="saveGoal()">

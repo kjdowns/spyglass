@@ -3,10 +3,7 @@ import { Goal } from 'src/app/models/goal';
 import { ChartService } from 'src/app/service/chart.service';
 
 
-interface Picture {
-  value: string;
-  image?: string; 
-}
+
 
 @Component({
   selector: 'app-charts-progress',
@@ -15,28 +12,44 @@ interface Picture {
 })
 export class ChartsProgressComponent implements OnInit {
 
-  goals: Goal [] = [];
+  goals: Goal [];
   private subscription; 
-  goalsChartArray = [];
-  goalsChart = 
-    {
-      "name": "",
-      "value": 0
-    }
+  goalsChartArray = [{
+    "name": "TV",
+    "value": 1000
+   },{
+    "name": "Vacation",
+    "value": 5000
+   },{
+    "name": "Event",
+    "value": 83
+   }]
+  
+      
+  goalsChart =
+   {
+    "name": "TV",
+    "value": 1000
+   };
 
   constructor(private chartService: ChartService) { }
 
   ngOnInit(): void {
     this.subscription = this.chartService.getGoals().subscribe((data: any[])=> {
       this.goals = data;
-      this.getChartData();
+       this.getChartData();
     })
   }
+  
 getChartData(){
   this.goals.forEach((goal)=> {
-    this.goalsChart.name = goal.name;
-    this.goalsChart.value = goal.currentAmount;
-    this.goalsChartArray.push(this.goalsChart)
+    for ( let i = 0; i < this.goalsChartArray.length; i++){
+      this.goalsChart[i].name = goal.name;
+     this.goalsChart[i].value = goal.currentAmount;
+    }
+     
+    console.log(this.goalsChart);
+    
   })
   }
 

@@ -25,11 +25,32 @@ export class GoalsAddComponent implements OnInit {
     name: '',
     description: '',
     picture: null,
-    targetDate: '',
+    targetDate: null,
     currentAmount: null,
     targetAmount: null
   };
 
+  //getters and setters for service properties 
+  get targetDate(): Date{
+    return this.goalService.targetDate;
+    console.log(this.targetDate)
+  }
+  set targetDate(value: Date){
+    this.goalService.targetDate = value;
+  }
+  get monthlyPayment(): number{
+    return this.goalService.monthlyPayment;
+  }
+  set monthlyPayment(value: number){
+    this.goalService.monthlyPayment = value;
+  }
+  get amount(): number{
+    return this.goalService.amount;
+  }
+  set amount(value: number){
+    this.goalService.amount = value;
+  }
+  
   submitted = false;
 
   constructor(
@@ -71,9 +92,9 @@ export class GoalsAddComponent implements OnInit {
       name: '',
       description: '',
       picture: null,
-      targetDate: '',
-      currentAmount: null,
-      targetAmount : null
+      targetDate: this.targetDate,
+      currentAmount: this.monthlyPayment,
+      targetAmount : this.amount
     }
   }
 
