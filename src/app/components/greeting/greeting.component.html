@@ -2,8 +2,13 @@
 <div class="greeting-container">
   <div class="greeting-header">
     <div class="text-heading">
-      <h1>Welcome to Spyglass!</h1>
-      <h2><em>Let's get started saving!</em></h2>
+      <mat-list>
+        <h1>Welcome to Spyglass!</h1>
+        <mat-divider></mat-divider>
+        <h2><em>Let's get started saving!</em></h2>
+      </mat-list>
+      
+      
     </div>
     <div class="image-heading">
       <img src="./assets/images/spyglassImage.jpg">
@@ -74,7 +79,7 @@
               <button mat-raised-button color="warn" routerLink="/goals/add">Track your goal</button>
             </span>
             <span>
-              <a mat-raised-button class="button-space" color="warn" href="https://investor.vanguard.com/mutual-funds/profile/performance/vmfxx/">
+              <a mat-raised-button class="button-space" color="warn" target="_blank" href="https://investor.vanguard.com/mutual-funds/profile/performance/vmfxx/">
                 Vanguard Funds
               </a>
             </span>
