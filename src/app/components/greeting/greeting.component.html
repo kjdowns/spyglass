@@ -1,18 +1,20 @@
 
 <div class="greeting-container">
+
   <div class="greeting-header">
+
     <div class="text-heading">
       <mat-list>
         <h1>Welcome to Spyglass!</h1>
         <mat-divider></mat-divider>
         <h2><em>Let's get started saving!</em></h2>
       </mat-list>
-      
-      
     </div>
+
     <div class="image-heading">
       <img src="./assets/images/spyglassImage.jpg">
     </div>
+
   </div>
 
   <div class="stepper-container">
@@ -47,27 +49,28 @@
         </div>
         <div class="savings-plan-container" *ngIf="showPlan">
           <mat-card style="text-align: center;">
-            <h3 style="font-size: 30px;"><strong>Your Savings Plan</strong></h3>
+            <h3 style="font-size: 30px; margin-top: 15px;"><strong>Your Savings Plan</strong></h3>
             <mat-list>
               <mat-divider></mat-divider>
                 <mat-list-item>
-                  Savings Goal: {{amount | currency:'USD'}}
+                  <strong>Savings Goal</strong>:   {{amount | currency:'USD'}}
                 </mat-list-item>
                 <mat-divider></mat-divider>
                 <mat-list-item>
-                  Target Date: {{targetDate | date}}
+                  <strong>Target Date</strong>:   {{targetDate | date}}
                 </mat-list-item>
                 <mat-divider></mat-divider>
                 <mat-list-item>
-                  Suggested Monthly Savings: {{monthlyPayment | currency:'USD'}}
+                  <strong>Suggested Monthly Savings</strong>:   {{monthlyPayment | currency:'USD'}}
                 </mat-list-item>
-                <mat-divider></mat-divider>
             </mat-list>
           </mat-card>
-          <mat-card>
+          <mat-card class="course-container">
             <div style="text-align: center; margin-bottom: 10px;">
               <h3 style="font-size: 40px;"><strong>Chart Your Course!</strong></h3>
+              <br>
               <p style="font-size: 15px;">Would you like to track your own savings or check out how Vanguard can help you navigate the rough seas?</p>
+              <br>
               <br>
             </div>
             <div style="text-align: center; margin-top: 15px;">
@@ -75,6 +78,8 @@
               <mat-icon [inline]="true" style="font-size: 100px; transform: scaleY(-1);">call_split</mat-icon>
               <mat-icon style="margin-left: 50px;">directions_boat</mat-icon>
             </div>
+            <br>
+            <br>
             <span>
               <button mat-raised-button color="warn" routerLink="/goals/add">Track your goal</button>
             </span>
