@@ -60,13 +60,17 @@
     </div>
   </div>
   
-  <div *ngIf=submitted>
-    <h4 style="color:rgb(206,0,00);width: 400px; margin:auto">Goal was added successfully</h4>
-  <button mat-raised-button color="primary" (click)="newGoal()">
-    <mat-icon>portrait</mat-icon> Add Another Goal
-  </button>
-  <button mat-raised-button color="primary" routerLink='/goals'>
-    <mat-icon>home</mat-icon>Back
-  </button>
+  <div class="submitted-container" *ngIf=submitted>
+    <div class="message-container">
+      <h4>Goal was added successfully!</h4>
+    </div>
+    <div class="button-container">
+      <button class="button-space" mat-raised-button color="primary" (click)="newGoal()">
+        <mat-icon>portrait</mat-icon> Add Another Goal
+      </button>
+      <button class="button-space" mat-raised-button color="primary" routerLink='/goals'>
+        <mat-icon>home</mat-icon>Back
+      </button>
+    </div>
   </div>
 </div>

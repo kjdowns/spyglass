@@ -1,7 +1,21 @@
+.goals-list-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 15px;
+    border: 1px solid grey;
+    border-radius: 15px;
+    box-shadow: 3px 3px 1px grey;
+    margin-top: 40px;
+}
+
 mat-card {
     width: 300px;
-    float: left;
     margin: 20px;
+    padding: 20px;
+    margin-top: 40px;
+    margin-bottom: 60px;
   } 
 
 mat-card-title {
@@ -13,4 +27,28 @@ mat-card-title {
     flex-wrap: wrap;
     justify-content: center;
     margin-top: 20px;
+    justify-content: space-evenly;
+    width: 90%;
+}
+
+.heading-container {
+  text-align: center;
+}
+
+h1 {
+  font-weight: 550;
+  font-size: 40px;
+  margin-top: 15px;
+  margin-bottom: 25px;
+}
+
+.add-button {
+  margin-top: 20px;
+  padding: 10px, 15px;
+  font-size: 20px;
+}
+
+img {
+  padding-left: 20px;
+  padding-right: 20px;
 }

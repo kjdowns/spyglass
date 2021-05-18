@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { Goal } from 'src/app/models/goal';
 import { GoalService } from 'src/app/service/goal.service';

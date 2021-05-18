@@ -3,6 +3,9 @@
     <h1 style="text-align:center">Update Your Goal</h1>
     <mat-divider></mat-divider>
   </mat-list>
+<div *ngIf=message class="message-container">
+  <h4>{{message}}</h4>
+</div>
 <div class = "centerAlign">
     <mat-form-field appearance="fill">
       <mat-label>Name</mat-label>
@@ -49,15 +52,13 @@
     </mat-form-field>
     <br>
     <div class="button-container">
-      <button class="button-space" mat-raised-button color="primary" (click)="updateGoal()">
-        <mat-icon>assignment_turned_in</mat-icon>Update
-      </button>
       <button class="button-space" mat-raised-button color="primary" routerLink='/goals'>
         <mat-icon>home</mat-icon>Back
       </button>
+      <button class="button-space" mat-raised-button color="primary" (click)="updateGoal()">
+        <mat-icon>assignment_turned_in</mat-icon>Update
+      </button>
     </div>
-      <br>
-      <div *ngIf=message>{{message}}</div>
   </div>
 </div>
 
