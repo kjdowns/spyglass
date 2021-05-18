@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 import { GoalService } from 'src/app/service/goal.service';
+import { ImageService } from 'src/app/service/image.service';
 
 interface Picture {
   value: string;
@@ -15,11 +16,13 @@ interface Picture {
 
 export class GoalsAddComponent implements OnInit {
 
-  pictures: Picture[]= [
-    {value:"House", image: "../assets/images/house.png"},
-    {value:"Car", image: "../assets/images/car.png"},
-    {value:"Wedding", image: "../assets/images/wedding.png"}
-  ];
+  pictures: Picture[];
+
+  // pictures: Picture[]= [
+  //   {value:"House", image: "./assets/images/house.png"},
+  //   {value:"Car", image: "./assets/images/car.png"},
+  //   {value:"Wedding", image: "./assets/images/wedding.png"}
+  // ];
 
   goals = {
     name: '',
@@ -54,15 +57,16 @@ export class GoalsAddComponent implements OnInit {
   submitted = false;
 
   constructor(
-    private goalService: GoalService) { }
+    private goalService: GoalService,
+    private imageService: ImageService) { }
 
   ngOnInit(): void {
     if (this.goalService.amount){
       this.newGoal();
       this.goalService.amount= null;
     }
-    
-   
+    this.pictures = this.imageService.getAll();
+    console.log(this.pictures);
   }
 
   saveGoal(): void {
