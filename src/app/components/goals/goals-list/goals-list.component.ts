@@ -29,6 +29,16 @@ export class GoalsListComponent implements OnInit {
     });
   }
 
+  deleteGoal(id): void {
+    this.goalService.delete(id)
+      .subscribe(data => {
+        console.log(data);
+        window.location.reload();
+      }, error => {
+        console.log(error);
+      })
+  }
+
   private displayProgress(current, total){
     return Number(current / total) * 100 ;
   }

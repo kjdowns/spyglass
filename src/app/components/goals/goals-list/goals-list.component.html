@@ -25,7 +25,7 @@
             <mat-card-actions>
                 <button mat-raised-button color="primary" routerLink="/goals/{{goal.id}}">Details</button>
                 <button mat-raised-button color="primary" routerLink="/goals/update">Update</button>
-                <button mat-raised-button color="warn">Delete</button>
+                <button mat-raised-button color="warn" (click)="deleteGoal(goal.id)">Delete</button>
             </mat-card-actions>
         </mat-card>
     </div>

@@ -6,16 +6,16 @@ import { Injectable } from '@angular/core';
 export class ImageService {
 
   IMAGES = [
-    {value: "anniversary", image: "./assets/images/anniversary.png"},
-    {value: "appliance", image: "./assets/images/appliance.png"},
-    {value: "car", image: "./assets/images/car.png"},
-    {value: "electronics", image: "./assets/images/electronics.png"},
-    {value: "entertainment", image: "./assets/images/entertainment.png"},
-    {value: "event", image: "./assets/images/event.png"},
-    {value: "generic", image: "./assets/images/generic.png"},
-    {value: "gift", image: "./assets/images/gift.png"},
-    {value: "house", image: "./assets/images/house.png"},
-    {value: "travel", image: "./assets/images/travel.png"}
+    {value: "Romance", image: "./assets/images/anniversary.png"},
+    {value: "Appliance", image: "./assets/images/appliance.png"},
+    {value: "Car", image: "./assets/images/car.png"},
+    {value: "Electronics", image: "./assets/images/electronics.png"},
+    {value: "Entertainment", image: "./assets/images/entertainment.png"},
+    {value: "Event", image: "./assets/images/event.png"},
+    {value: "Generic", image: "./assets/images/generic.png"},
+    {value: "Gift", image: "./assets/images/gift.png"},
+    {value: "House", image: "./assets/images/house.png"},
+    {value: "Travel", image: "./assets/images/travel.png"}
   ]
 
   constructor() { }
