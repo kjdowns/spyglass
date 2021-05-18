@@ -35,14 +35,16 @@
     <br>
     <mat-form-field appearance="fill">
         <mat-label>Current Amount</mat-label>
-        <input matInput name = "currentAmount"[ngModel]="goals.currentAmount | currency"
+        <span matPrefix>$&nbsp;</span>
+        <input matInput name = "currentAmount"[ngModel]="goals.currentAmount | number :'1.2-2'"
         [ngModelOptions]="{updateOn:'blur'}"
         (ngModelChange)="goals.currentAmount=$event" required>
     </mat-form-field>
     <br>
     <mat-form-field appearance="fill">
         <mat-label>Target Amount</mat-label>
-        <input matInput name = "targetAmount" [ngModel]="goals.targetAmount | currency" 
+        <span matPrefix>$&nbsp;</span>
+        <input matInput name = "targetAmount" [ngModel]="goals.targetAmount | number :'1.2-2'" 
         [ngModelOptions]= "{updateOn:'blur'}"
         (ngModelChange)="goals.targetAmount=$event"
         required>

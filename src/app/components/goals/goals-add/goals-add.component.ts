@@ -64,6 +64,8 @@ export class GoalsAddComponent implements OnInit {
     if (this.goalService.amount){
       this.newGoal();
       this.goalService.amount= null;
+      this.goalService.monthlyPayment = null;
+      this.goalService.targetDate = null;
     }
     this.pictures = this.imageService.getAll();
     console.log(this.pictures);
