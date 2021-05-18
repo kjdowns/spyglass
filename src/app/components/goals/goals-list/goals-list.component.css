@@ -51,3 +51,8 @@ h1 {
 .head-spacer {
   margin-top: 40px;
 }
+
+img {
+  padding-left: 20px;
+  padding-right: 20px;
+}
