@@ -12,7 +12,7 @@ const routes: Routes = [
   {path: '', component: GreetingComponent},
   {path: 'goals', component: GoalsListComponent},
   {path: 'goals/add', component: GoalsAddComponent},
-  {path: 'goals/update', component: GoalsUpdateComponent},
+  {path: 'goals/update/:id', component: GoalsUpdateComponent},
   {path: 'goals/:id', component: GoalsDetailsComponent},
   {path: 'charts', component: ChartsProgressComponent}
   

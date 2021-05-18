@@ -16,10 +16,17 @@ interface Picture {
 })
 export class GoalsUpdateComponent implements OnInit {
   
-  pictures: Picture[]= [
-    {value:"House", image: "../assets/images/house.png"},
-    {value:"Car", image: "../assets/images/car.png"},
-    {value:"Wedding", image: "../assets/images/wedding.png"}
+  pictures: Picture[] = [
+    {value: "Romance", image: "./assets/images/anniversary.png"},
+    {value: "Appliance", image: "./assets/images/appliance.png"},
+    {value: "Car", image: "./assets/images/car.png"},
+    {value: "Electronics", image: "./assets/images/electronics.png"},
+    {value: "Entertainment", image: "./assets/images/entertainment.png"},
+    {value: "Event", image: "./assets/images/event.png"},
+    {value: "Generic", image: "./assets/images/generic.png"},
+    {value: "Gift", image: "./assets/images/gift.png"},
+    {value: "House", image: "./assets/images/house.png"},
+    {value: "Travel", image: "./assets/images/travel.png"}
   ];
 
   currentGoal: Goal;

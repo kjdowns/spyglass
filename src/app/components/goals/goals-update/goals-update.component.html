@@ -13,15 +13,19 @@
     <mat-form-field appearance="fill">
         <mat-label>Picture</mat-label>
         <mat-select [(ngModel)]="currentGoal.picture" name="picture">
-          <mat-option *ngFor="let picture of pictures" [value]="picture.value">
-            <img width="50" height="50" src={{picture.image}}> {{picture.value}}
+          <mat-option *ngFor="let picture of pictures" [value]="picture.image">
+            <img width="50" height="50" src={{picture.image}}>
+            <span style="margin-left: 30px;">{{picture.value}}</span>
           </mat-option>
         </mat-select>
     </mat-form-field>
     <br>
     <mat-form-field appearance="fill">
       <mat-label>Target Date</mat-label>
-      <input matInput type="date" name="targetDate" [(ngModel)]="currentGoal.targetDate" required>
+      <input matInput type="date" name="targetDate" 
+        [ngModel]="currentGoal.targetDate | date:'yyyy-MM-dd'" 
+        [ngModelOptions]= "{updateOn:'blur'}"
+        (ngModelChange)="currentGoal.targetDate=$event" required>
     </mat-form-field>
     <br>
     <mat-form-field appearance="fill">
@@ -44,11 +48,11 @@
         <mat-icon>assignment_turned_in</mat-icon>Update
       </button>
       <br>
-      <div *ngIf=message>{{message}}  </div>
       <button mat-raised-button color="primary" routerLink='/goals'>
         <mat-icon>home</mat-icon>Back
       </button>
-     
+      <br>
+      <div *ngIf=message>{{message}}</div>
   </div>
   
   
