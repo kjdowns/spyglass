@@ -77,8 +77,8 @@ export class GoalsAddComponent implements OnInit {
       description: this.goals.description,
       picture: this.goals.picture,
       targetDate: this.goals.targetDate,
-      currentAmount: this.goals.currentAmount,
-      targetAmount: this.goals.targetAmount
+      currentAmount: Number(this.goals.currentAmount),
+      targetAmount: Number(this.goals.targetAmount)
     };
     console.log(data);
     this.goalService.create(data)
