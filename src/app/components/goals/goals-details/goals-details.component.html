@@ -39,8 +39,14 @@
             </mat-list>
         </mat-card-content>
         <mat-card-actions>
-            <button mat-raised-button color="primary" routerLink="/goals">Back</button>
-            <button mat-raised-button color="primary" routerLink="/goals/update/{{goal.id}}">Update</button>
+            <button mat-raised-button color="primary" routerLink="/goals">
+                <mat-icon>home</mat-icon>
+                Back
+            </button>
+            <button mat-raised-button color="primary" routerLink="/goals/update/{{goal.id}}">
+                <mat-icon>edit</mat-icon>
+                Edit Goal
+            </button>
         </mat-card-actions>
     </mat-card>
 </div>
