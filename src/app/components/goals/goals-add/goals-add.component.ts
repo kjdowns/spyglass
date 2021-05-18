@@ -18,12 +18,7 @@ export class GoalsAddComponent implements OnInit {
 
   pictures: Picture[];
 
-  // pictures: Picture[]= [
-  //   {value:"House", image: "./assets/images/house.png"},
-  //   {value:"Car", image: "./assets/images/car.png"},
-  //   {value:"Wedding", image: "./assets/images/wedding.png"}
-  // ];
-
+  
   goals = {
     name: '',
     description: '',
@@ -36,7 +31,7 @@ export class GoalsAddComponent implements OnInit {
   //getters and setters for service properties 
   get targetDate(): Date{
     return this.goalService.targetDate;
-    console.log(this.targetDate)
+    
   }
   set targetDate(value: Date){
     this.goalService.targetDate = value;
