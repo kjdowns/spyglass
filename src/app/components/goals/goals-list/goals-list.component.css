@@ -15,7 +15,7 @@ mat-card {
     margin: 20px;
     padding: 20px;
     margin-top: 40px;
-    margin-bottom: 40px;
+    margin-bottom: 60px;
   } 
 
 mat-card-title {
@@ -27,7 +27,7 @@ mat-card-title {
     flex-wrap: wrap;
     justify-content: center;
     margin-top: 20px;
-    justify-content: flex-start;
+    justify-content: space-evenly;
     width: 90%;
 }
 
