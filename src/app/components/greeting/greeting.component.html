@@ -1,60 +1,94 @@
 
-<h1>Welcome to Spyglass!<br> <br>
-  <i>Let's get started saving!</i> </h1>
-<mat-horizontal-stepper #stepper>
-    
-    <mat-step >
-        <ng-template matStepLabel>How much do you want to save?</ng-template>
-        <mat-form-field>
-          <mat-label>Amount</mat-label>
-          <input matInput placeholder="$0.00" [(ngModel)]="amount" required>
-        </mat-form-field>
-        <div>
-          <button mat-button matStepperNext>Continue</button>
-        </div>
-    </mat-step>
+<div class="greeting-container">
+  <div class="greeting-header">
+    <div class="text-heading">
+      <h1>Welcome to Spyglass!</h1>
+      <h2><em>Let's get started saving!</em></h2>
+    </div>
+    <div class="image-heading">
+      <img src="./assets/images/spyglassImage.jpg">
+    </div>
+  </div>
 
-    <mat-step label="Enter a Target Date">
-        <mat-form-field>
-          <mat-label>Target Date</mat-label>
-          <input matInput [(ngModel)]="targetDate" [matDatepicker]="picker"
-                 required>
-          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-          <mat-datepicker #picker></mat-datepicker>
-        </mat-form-field>
-        <div>
-          <button mat-button matStepperPrevious>Back</button>
-          <button mat-button matStepperNext>Next</button>
+  <div class="stepper-container">
+    <mat-horizontal-stepper #stepper>
+      <mat-step >
+          <ng-template matStepLabel>How much do you want to save?</ng-template>
+          <mat-form-field>
+            <mat-label>Amount</mat-label>
+            <input matInput placeholder="$0.00" [(ngModel)]="amount" required>
+          </mat-form-field>
+          <div>
+            <button mat-stroked-button matStepperNext class="button-space"> Continue <mat-icon>fast_forward</mat-icon></button>
+          </div>
+      </mat-step>
+      <mat-step label="Enter a Target Date">
+          <mat-form-field>
+            <mat-label>Target Date</mat-label>
+            <input matInput [(ngModel)]="targetDate" [matDatepicker]="picker"
+                   required>
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field>
+          <div>
+            <button mat-stroked-button matStepperPrevious><mat-icon>fast_rewind</mat-icon> Back</button>
+            <button mat-stroked-button matStepperNext class="button-space">Continue <mat-icon>fast_forward</mat-icon></button>
+          </div>
+      </mat-step>
+      <mat-step>
+        <ng-template matStepLabel>Savings Plan</ng-template>
+        <div class="button-container" *ngIf="!showPlan">
+          <button mat-raised-button color="primary" (click)="calculatePlan()">Calculate Your Savings Plan</button>
         </div>
-    </mat-step>
-
-    <mat-step>
-      <ng-template matStepLabel>Savings Plan</ng-template>
-      <div class="button-container" *ngIf="!showPlan">
-        <button mat-raised-button color="primary" (click)="calculatePlan()">Calculate Savings Plan</button>
-      </div>
-      <div class="savings-plan-container" *ngIf="showPlan">
-        <p>Calculated Plan:</p>
-        <P>
-            Monthly Savings: {{monthlyPayment | currency:'USD'}}
-        </P>
-        
-        Monthly Amount to set aside to hit goal
-       <em> OR</em> save with Vanguard
-        Buttons 
-        Start your savings plan today 
-        <a mat-raised-button href="https://investor.vanguard.com/mutual-funds/profile/performance/vmfxx/">Vanguard Funds</a>
-      
-      </div>
-      <div>
-        <button mat-button matStepperPrevious>Back</button>
-        <button mat-button (click)="reset()">Reset</button>
-      </div>
-    </mat-step>
-  </mat-horizontal-stepper>
-  <div>
+        <div class="savings-plan-container" *ngIf="showPlan">
+          <mat-card style="text-align: center;">
+            <h3 style="font-size: 30px;"><strong>Your Savings Plan</strong></h3>
+            <mat-list>
+              <mat-divider></mat-divider>
+                <mat-list-item>
+                  Savings Goal: {{amount | currency:'USD'}}
+                </mat-list-item>
+                <mat-divider></mat-divider>
+                <mat-list-item>
+                  Target Date: {{targetDate | date}}
+                </mat-list-item>
+                <mat-divider></mat-divider>
+                <mat-list-item>
+                  Suggested Monthly Savings: {{monthlyPayment | currency:'USD'}}
+                </mat-list-item>
+                <mat-divider></mat-divider>
+            </mat-list>
+          </mat-card>
+          <mat-card>
+            <div style="text-align: center; margin-bottom: 10px;">
+              <h3 style="font-size: 40px;"><strong>Chart Your Course!</strong></h3>
+              <p style="font-size: 15px;">Would you like to track your own savings or check out how Vanguard can help you navigate the rough seas?</p>
+              <br>
+            </div>
+            <div style="text-align: center; margin-top: 15px;">
+              <mat-icon style="margin-right: 50px;">map</mat-icon>
+              <mat-icon [inline]="true" style="font-size: 100px; transform: scaleY(-1);">call_split</mat-icon>
+              <mat-icon style="margin-left: 50px;">directions_boat</mat-icon>
+            </div>
+            <span>
+              <button mat-raised-button color="warn" routerLink="/goals/add">Track your goal</button>
+            </span>
+            <span>
+              <a mat-raised-button class="button-space" color="warn" href="https://investor.vanguard.com/mutual-funds/profile/performance/vmfxx/">
+                Vanguard Funds
+              </a>
+            </span>
+          </mat-card>
+        </div>
+        <div>
+          <button mat-stroked-button matStepperPrevious><mat-icon>fast_rewind</mat-icon> Back</button>
+          <button mat-stroked-button (click)="reset()" class="button-space">Reset</button>
+        </div>
+      </mat-step>
+    </mat-horizontal-stepper>
     <div>
-      <button mat-raised-button color="primary" routerLink="/goals/add">Track your goal</button>
+    
+    </div>
   </div>
-  
-  </div>
+    
+</div>

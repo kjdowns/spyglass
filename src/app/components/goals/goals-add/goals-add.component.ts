@@ -78,7 +78,7 @@ export class GoalsAddComponent implements OnInit {
       currentAmount: this.goals.currentAmount,
       targetAmount: this.goals.targetAmount
     };
-
+    console.log(data);
     this.goalService.create(data)
       .subscribe(
         response => {
