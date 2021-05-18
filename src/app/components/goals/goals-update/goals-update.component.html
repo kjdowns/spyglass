@@ -2,7 +2,7 @@
 <div class = "centerAlign">
     <mat-form-field appearance="fill">
       <mat-label>Name</mat-label>
-      <input matInput name="name" [(ngModel)]="currentGoal.name" required>
+      <input matInput name="name" type ="text" [(ngModel)]="currentGoal.name" required>
     </mat-form-field>
     <br>
     <mat-form-field appearance="fill">
@@ -30,21 +30,26 @@
     <br>
     <mat-form-field appearance="fill">
         <mat-label>Current Amount</mat-label>
+        <span matPrefix>$</span>
         <input matInput name="currentAmount"  
-          [ngModel]="currentGoal.currentAmount | currency" 
+          [ngModel]="currentGoal.currentAmount | number : '1.2-2'" 
           [ngModelOptions]="{updateOn:'blur'}"
-          (ngModelChange)="currentGoal.currentAmount=$event" required>
+          (ngModelChange)="currentGoal.currentAmount = fixToNumber($event)" required>
     </mat-form-field>
     <br>
     <mat-form-field appearance="fill">
         <mat-label>Target Amount</mat-label>
+        <span matPrefix>$</span>
         <input matInput name="targetAmount" 
-          [ngModel]="currentGoal.targetAmount | currency" 
+          [ngModel]="currentGoal.targetAmount | number : '1.2-2'" 
           [ngModelOptions]="{updateOn:'blur'}"
-          (ngModelChange)="currentGoal.targetAmount=$event" required>
+          (ngModelChange)="currentGoal.targetAmount = fixToNumber($event)" required>
     </mat-form-field>
     <br>
-    <button mat-raised-button color="primary" (click)="updateGoal()">
+    <button mat-raised-button color="primary" 
+      [disabled]="currentGoal.name === '' || currentGoal.description === ''
+                || currentGoal.currentAmount <= 0 || currentGoal.targetAmount <= 0 "
+        (click)="updateGoal()">
         <mat-icon>assignment_turned_in</mat-icon>Update
       </button>
       <br>

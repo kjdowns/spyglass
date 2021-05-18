@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { Goal } from 'src/app/models/goal';
 import { GoalService } from 'src/app/service/goal.service';
@@ -35,7 +34,7 @@ export class GoalsUpdateComponent implements OnInit {
    constructor(
     private goalService: GoalService,
     private route: ActivatedRoute) { }
-
+  
   ngOnInit(): void {
     this.message = '';
     this.getGoal(this.route.snapshot.paramMap.get('id'));
@@ -65,6 +64,14 @@ export class GoalsUpdateComponent implements OnInit {
         });
   }
 
-  
-
+  fixToNumber(num) {
+    num = parseFloat(num.replace(/,/g, ''));
+    console.log(num);
+    if (isNaN(num)){
+      return 0;
+    }
+    else{
+      return Number(num);
+    }
+  }
 }
