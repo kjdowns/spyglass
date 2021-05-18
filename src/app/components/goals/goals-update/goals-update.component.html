@@ -1,4 +1,8 @@
-<h1 style="text-align:center">Start Updating Your Goal</h1>
+<div class="update-goals-container">
+  <mat-list>
+    <h1 style="text-align:center">Update Your Goal</h1>
+    <mat-divider></mat-divider>
+  </mat-list>
 <div class = "centerAlign">
     <mat-form-field appearance="fill">
       <mat-label>Name</mat-label>
@@ -44,15 +48,18 @@
           (ngModelChange)="currentGoal.targetAmount=$event" required>
     </mat-form-field>
     <br>
-    <button mat-raised-button color="primary" (click)="updateGoal()">
+    <div class="button-container">
+      <button class="button-space" mat-raised-button color="primary" (click)="updateGoal()">
         <mat-icon>assignment_turned_in</mat-icon>Update
       </button>
-      <br>
-      <button mat-raised-button color="primary" routerLink='/goals'>
+      <button class="button-space" mat-raised-button color="primary" routerLink='/goals'>
         <mat-icon>home</mat-icon>Back
       </button>
+    </div>
       <br>
       <div *ngIf=message>{{message}}</div>
   </div>
+</div>
+
   
   

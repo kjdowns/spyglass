@@ -3,6 +3,7 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    margin-top: 40px;
   }
   
   .errors {
@@ -11,3 +12,28 @@
     align-items: left;
     flex-direction: column;
   }
+
+  .update-goals-container {
+    padding: 15px;
+    border: 1px solid grey;
+    border-radius: 15px;
+    box-shadow: 3px 3px 1px grey;
+    width: 75%;
+}
+
+h1 {
+  font-weight: 550;
+  font-size: 30px;
+  margin-top: 25px;
+
+}
+
+.button-space {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.button-container {
+  margin-bottom: 35px;
+  margin-top: 15px;
+}

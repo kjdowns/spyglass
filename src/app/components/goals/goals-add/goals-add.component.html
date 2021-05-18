@@ -1,4 +1,8 @@
-<h1 style="text-align:center">Start Adding Your New Goal</h1>
+<div class="add-goals-container">
+  <mat-list>
+    <h1 style="text-align:center">Start Adding Your New Goal</h1>
+    <mat-divider></mat-divider>
+  </mat-list>
 <div class = "centerAlign" *ngIf=!submitted>
     <mat-form-field appearance="fill">
       <mat-label>Name</mat-label>
@@ -44,13 +48,14 @@
         required>
     </mat-form-field>
     <br>
-    <button mat-raised-button color="primary" (click)="saveGoal()">
-      <mat-icon>save</mat-icon> Save
-    </button>
-    <br>
-    <button mat-raised-button color="primary" routerLink='/goals'>
-      <mat-icon>home</mat-icon>Back
-    </button>
+    <div class="button-container">
+      <button class="button-space" mat-raised-button color="primary" routerLink='/goals'>
+        <mat-icon>home</mat-icon>Back
+      </button>
+      <button class="button-space" mat-raised-button color="primary" (click)="saveGoal()">
+        <mat-icon>save</mat-icon> Save
+      </button>
+    </div>
   </div>
   
   <div *ngIf=submitted>
@@ -62,3 +67,4 @@
     <mat-icon>home</mat-icon>Back
   </button>
   </div>
+</div>
