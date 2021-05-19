@@ -43,7 +43,6 @@
     <br>
     <mat-form-field appearance="fill">
         <mat-label>Target Amount</mat-label>
-        <!-- <span matPrefix>$&nbsp;</span> -->
         <input matInput name = "targetAmount" [ngModel]="goals.targetAmount | currency" 
         [ngModelOptions]= "{updateOn:'blur'}"
         (ngModelChange)="goals.targetAmount=$event"

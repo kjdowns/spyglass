@@ -14,6 +14,7 @@ const routes: Routes = [
   {path: 'goals/add', component: GoalsAddComponent},
   {path: 'goals/update/:id', component: GoalsUpdateComponent},
   {path: 'goals/:id', component: GoalsDetailsComponent},
+  
   {path: 'charts', component: ChartsProgressComponent}
   
 ];

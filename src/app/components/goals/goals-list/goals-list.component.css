@@ -63,3 +63,12 @@ mat-card-actions button {
   margin-bottom: 10px;
   margin-top: 10px;
 }
+
+.goal-reached {
+  padding-top: 10px;
+  margin: 10px;
+  text-align: center;
+  color: green;
+  font-size: 18px;
+  font-weight: 500;
+}

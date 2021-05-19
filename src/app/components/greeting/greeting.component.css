@@ -1,9 +1,7 @@
 
 .stepper-container {
     border: 1px solid grey;
-    /* height: 400px; */
     padding: 75px;
-    /* border-radius: 50% 20% / 10% 40%; */
     border-radius: 15px;
     background-image: url("../../../assets/images/parchment.JPG");
     opacity: .70;
@@ -52,7 +50,6 @@ mat-form-field, .button-container, .savings-plan-container {
 }
 
 .button-space {
-    /* margin-left: 20px; */
     float: right;
 }
 

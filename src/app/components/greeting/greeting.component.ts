@@ -9,12 +9,9 @@ import { GoalService } from 'src/app/service/goal.service';
 export class GreetingComponent implements OnInit {
 
   showPlan = false;
-  // amount: 0.00;
-  // targetDate: Date;
   today = Date.now();
   output = null;
   milliInMonth: number = 2629800000
-  // monthlyPayment: number;
 
   //getters and setters for service properties 
   get targetDate(): Date{
