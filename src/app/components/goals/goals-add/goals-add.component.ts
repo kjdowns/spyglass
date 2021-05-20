@@ -17,7 +17,6 @@ interface Picture {
 export class GoalsAddComponent implements OnInit {
 
   pictures: Picture[];
-
   
   goals = {
     name: '',
