@@ -1,8 +1,15 @@
-<ngx-charts-pie-grid
-  [view]="[1000, 300]"
+<mat-card>
+  <h1 style="text-align: center;">Percent of Savings</h1>
+  <ngx-charts-pie-grid style = "text-align: center;"
+    [view]="[1000, 300]"
+    
+    [results]="goalsChartArray"
   
-  [results]="goalsChartArray"
+    [label] = " 'Total Savings'"
+  >
+  </ngx-charts-pie-grid>
 
-  [label] = " 'Total Savings'"
->
-</ngx-charts-pie-grid>
+
+
+
+</mat-card>
